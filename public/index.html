@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="domainInput" placeholder="Enter domain name">
+        <select id="dnsTypeSelect">
+            <option value="A">A</option>
+            <option value="NS">NS</option>
+            <option value="TXT">TXT</option>
+            <option value="CNAME">CNAME</option>
+            <option value="MX">MX</option>
+            <option value="PTR">PTR</option>
+            <option value="SOA">SOA</option>
+            <option value="SRV">SRV</option>
+        </select>
+        <button id="checkBtn">Check</button>
+    </div>
+    <div class="results-container" id="results"></div>
+        <!-- Result boxes will be added here dynamically -->
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

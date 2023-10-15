@@ -1,0 +1,24 @@
+version: '3'
+
+networks:
+  WAN:
+    external: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.1.1.0/24
+
+
+services:
+  app:
+    container_name: dns-checker
+    environment:
+      - NODE_ENV=production
+	    build:
+context: .
+      dockerfile: Dockerfile
+    networks:
+      WAN:
+        ipv4_address: 172.1.1.252
+    ports:
+      - "15555:3000"
