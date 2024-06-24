@@ -8,17 +8,17 @@ networks:
       config:
         - subnet: 172.1.1.0/24
 
-
 services:
   app:
     container_name: dns-checker
-    environment:
-      - NODE_ENV=production
-	    build:
-context: .
+    build:
+      context: .
       dockerfile: Dockerfile
+    volumes:
+      - ./public:/app/public
+      - ./server.js:/app/server.js
+    ports:
+      - "15555:3000"
     networks:
       WAN:
         ipv4_address: 172.1.1.252
-    ports:
-      - "15555:3000"
